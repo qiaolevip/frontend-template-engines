@@ -170,6 +170,36 @@
       vertical-align: text-bottom;
       margin-right: .3em;
     }
+    .footer-container {
+      position: fixed;
+      height: 44px;
+      z-index: 28;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow-x: hidden;
+      background-color: #fff;
+    }
+    .footer-container ul li {
+      text-align: center;
+      width: 50%;
+      height: 100%;
+    }
+    .footer-container ul li span {
+      display: inline-block;
+      width: 57px;
+      height: 44px;
+      font-size: 24px;
+      color: gray;
+      line-height: 44px;
+    }
+    .footer-container ul li span img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      overflow: hidden;
+    }
     @media screen and (max-width: 320px) {
       .top-container .img-area {
         height: 8rem;
@@ -179,6 +209,20 @@
 </head>
 <body>
   <div id="main-container" class="main-container"></div>
+  <footer class="footer-container">
+    <ul class="inline-li">
+      <li onClick="history.back(0)">
+        <span>🔙</span>
+      </li>
+      <li>
+        <span>
+          <a href="http://qiaolevip.github.com/frontend-template-engines/">
+            <img src="images/icon-home.png" />
+          </a>
+        </span>
+      </li>
+    </ul>
+  </footer>
 
   <script id="main-template" type="text/x-doT-template">
     <div class="title-container">
@@ -273,7 +317,7 @@
       return document.getElementById(id);
     };
 
-    var fillOutSex = function(data) {
+    var fillOutData = function(data) {
       data.maxInvestAge = Math.max.apply(null, Object.keys(data.age).map(function(key) { return data.age[key].per; }));
       var today = new Date();
       today.setDate(today.getDate() - 1);
@@ -287,7 +331,7 @@
 
     var init = function() {
       getJSON('data.json', function(data) {
-        fillOutSex(data);
+        fillOutData(data);
       });
     };
     init();
