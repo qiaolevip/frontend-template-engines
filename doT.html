@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>doT模板处理数据</title>
+  <style>
+    body {
+      color: #ffffff;
+      font-size: 14px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      margin: 0 1em;
+    }
+    ul li {
+      list-style: none;
+      overflow: hidden;
+    }
+    .inline-li li {
+      float: left;
+    }
+    .text-center{text-align: center}
+    .orange-text {color: #FFB035}
+    .center-absolute {position: absolute;left: 0;right: 0;margin-left: auto;margin-right: auto}
+    .row{width: 100%;overflow: hidden}
+    .col3, .col5{float: left}
+    .col3{width: 33.333333333%}
+    .col5{width: 50%}
+    .super-title {
+      margin: 1em;
+      background: #FFB035;
+      display: inline-block;
+      padding: .5em 1em;
+      font-size: 18px;
+      color: #fff;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .main-container {
+      max-width: 414px;
+      margin: 0 auto;
+      background: #430D4E;
+    }
+    .city-map-container {
+      margin: .5em 0;
+      position: relative;
+    }
+    .city-map-container .super-title {
+      position: absolute;
+      right: 0;
+      top: 9px;
+      margin: -.6em 1em;
+      padding: .3em;
+    }
+    .city-map-container img {
+      width: 90%;
+    }
+    .age-container ul {
+      white-space: nowrap;
+    }
+    .age-container ul li {
+      padding-top: 1.5em;
+    }
+    .age-container .age-rate-text {
+      margin: 0 1em 1em;
+      text-align: right;
+      font-size: 12px;
+    }
+    .age-container .age-rate-text .rate {
+      display: inline-block;
+      width: 1.4em;
+      height: .5em;
+      margin: 0 .4em 0 1em;
+    }
+    .age-container .age-rate-text .avg-person {
+      background: #F86A1F;
+    }
+    .age-container .age-rate-text .avg-invest {
+      background: #FFB035;
+    }
+    .age-container .age-rate-text .avg-person-text {
+      color: #F86A1F;
+    }
+    .age-container .age-rate-text .avg-invest-text {
+      color: #FFB035;
+    }
+    .age-container .invest-column {
+      position: relative;
+      width: 100%;
+      height: 10em;
+      margin: .8em auto;
+    }
+    .age-container .invest-column .column {
+      bottom: 0;
+      width: 80%;
+      background: #FFB745;
+    }
+    .age-container li .invest-amount {
+      font-size: 12px;
+      width: 100%;
+      margin-bottom: .6em;
+    }
+    .sex-container ul li {
+      padding: 1.2em 0;
+    }
+    .sex-container ul li div {
+      float: left;
+    }
+    .sex-container ul li div.col1 {
+      width: 15%;
+    }
+    .sex-container .age-text {
+      margin-top: 0.3em;
+    }
+    .sex-container ul li div.col7 {
+      width: 55%;
+      white-space: nowrap;
+    }
+    .sex-container ul li div.col7 .avg-amount {
+      margin: -1em 0 .4em;
+      font-size: 13px;
+    }
+    .sex-container ul li div.col7 .part {
+      padding: 0.8em 0 .4em;
+      text-indent: .6em;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .sex-container ul li div.col7 .male {
+      background: #1AAFFE
+    }
+    .sex-container ul li div.col7 .female {
+      background: #FE867D;
+    }
+    .sex-container img {
+      height: 4em;
+      margin-top: -1em;
+    }
+    .sex-container img.female {
+      margin-left: 0.6em;
+    }
+    .top-container ul li {
+      margin-bottom: .4em;
+    }
+    .top-container .img-area {
+      position: relative;
+      height: 9rem;
+    }
+    .top-container .img-area img {
+      width: 80%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: .3em;
+      margin: 0 auto;
+    }
+    .top-container .img-area img.top1 {
+      width: 95%;
+      margin-top: -15px;
+    }
+    .top-container .line {
+      margin: 1em 0;
+    }
+    .top-container .line img {
+      width: 25px;
+      vertical-align: text-bottom;
+      margin-right: .3em;
+    }
+    @media screen and (max-width: 320px) {
+      .top-container .img-area {
+        height: 8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="main-container" class="main-container"></div>
+
+  <script id="main-template" type="text/x-doT-template">
+    <div class="title-container">
+      <div class="super-title">doT Engine渲染数据</div>
+    </div>
+    <div class="city-map-container">
+      <div class="super-title">开始渲染数据</div>
+      <img src="images/city-map.png" />
+    </div>
+    <div class="top-container">
+      <div class="super-title">循环数据+逻辑判断</div>
+      <ul class="inline-li text-center">
+        {{~ [2, 1, 3] :i}}
+        <li class="col3">
+          <div class="img-area">
+            <img src="images/single-top{{=i}}.png" {{? i==1 }}class="top1"{{?}} />
+          </div>
+          <div class="line">{{=it.top10[i-1].username}}</div>
+          <div class="line"><img src="images/yuanbao.png" />{{=it.top10[i-1].amount}}元</div>
+        </li>
+        {{~}}
+      </ul>
+    </div>
+    <div class="age-container">
+      <div class="super-title">条形图：循环对象+逻辑判断</div>
+      <div class="age-rate-text">
+        <span class="rate avg-person"></span><span class="avg-person-text">人均比例</span>
+        <span class="rate avg-invest"></span><span class="avg-invest-text">人均投资额</span>
+      </div>
+      <ul class="inline-li text-center">
+        {{~Object.keys(it.age).reverse() :k}}
+        <li style="width: {{=100/Object.keys(it.age).length}}%;">
+          <div class="invest-column">
+            <span class="invest-amount center-absolute" style="bottom: {{=(it.maxInvestAge==it.age[k].per?100:(it.age[k].per*100/it.maxInvestAge))}}%">{{=parseInt(it.age[k].amount)}}元</span>
+            <span class="column center-absolute" style="height: {{=(it.maxInvestAge==it.age[k].per?100:(it.age[k].per*100/it.maxInvestAge))}}%"></span>
+          </div>
+          <div class="orange-text">{{=k}}</div>
+        </li>
+        {{~}}
+      </ul>
+    </div>
+    <div class="sex-container">
+      <div class="super-title">条形图：循环对象+逻辑判断</div>
+      <ul>
+        {{~Object.keys(it.age).reverse() :k}}
+        <li>
+          <div class="col1 age-text orange-text">{{=k}}</div>
+          <div class="col1">
+            <img src="images/male.png" />
+          </div>
+          <div class="col7">
+            <div class="row orange-text avg-amount">
+              <div class="col5">平均:{{=parseInt(it.age[k].M.amount)}}元</div>
+              <div class="col5">平均:{{=parseInt(it.age[k].F.amount)}}元</div>
+            </div>
+            <div class="row">
+              {{? !it.age[k].M.per && !it.age[k].F.per }}
+              <div class="part male" style="width: 50%">50%</div>
+              <div class="part female" style="width: 50%">50%</div>
+              {{?? true }}
+              <div class="part male" style="width: {{=it.age[k].M.per}}%">{{=it.age[k].M.per}}%</div>
+              <div class="part female" style="width: {{=it.age[k].F.per}}%">{{=it.age[k].F.per}}%</div>
+              {{?}}
+            </div>
+          </div>
+          <div class="col1">
+            <img class="female" src="images/female.png" />
+          </div>
+        </li>
+        {{~}}
+      </ul>
+    </div>
+  </script>
+
+  <script type="text/javascript" src="engines/doT.1.0.0.min.js"></script>
+  <script>
+    var getJSON = function(url, success, error) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            if (success) success(JSON.parse(xhr.responseText));
+          } else {
+            if (error) error(xhr);
+          }
+        }
+      };
+      xhr.open('GET', url, true);
+      xhr.send();
+    };
+    var $ = function(id) {
+      return document.getElementById(id);
+    };
+
+    var fillOutSex = function(data) {
+      data.maxInvestAge = Math.max.apply(null, Object.keys(data.age).map(function(key) { return data.age[key].per; }));
+      var today = new Date();
+      today.setDate(today.getDate() - 1);
+      data.yesterday = today.getMonth() + 1 + '月' + today.getDate() + '日';
+
+      var source   = $('main-template').innerHTML;
+      var template = doT.template(source);
+      var html     = template(data);
+      $('main-container').innerHTML = html;
+    };
+
+    var init = function() {
+      getJSON('data.json', function(data) {
+        fillOutSex(data);
+      });
+    };
+    init();
+  </script>
+</body>
+</html>

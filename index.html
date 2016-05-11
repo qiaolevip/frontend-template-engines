@@ -25,7 +25,7 @@
 
   <script id="tmplsTmpl" type="text/tmpl">
     {{~it :engine}}
-    <a href="{{=engine.link}}" class="btn">{{=engine.name}} ({{=engine.size}})</a>
+    <a href="{{=engine.example||engine.link}}" class="btn">{{=engine.name}} ({{=engine.size}})</a>
     {{~}}
   </script>
   <script src="engines/doT.1.0.0.min.js"></script>

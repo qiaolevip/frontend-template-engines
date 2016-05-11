@@ -9,7 +9,8 @@
     "name": "doT.js",
     "link": "http://olado.github.com/doT/",
     "link_text": "project",
-    "size": "3.5k"
+    "size": "3.5k",
+    "example": "doT.html"
   },
   {
     "name": "dust.js (LinkedIn)",
