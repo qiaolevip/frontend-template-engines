@@ -9,20 +9,20 @@
     "name": "doT.js",
     "link": "http://olado.github.com/doT/",
     "link_text": "project",
-    "size": "3.5k",
+    "size": "3.5kb",
     "example": "doT.html"
   },
   {
     "name": "dust.js (LinkedIn)",
     "link": "http://github.com/linkedin/dustjs/",
     "link_text": "github",
-    "size": "9.3k"
+    "size": "9.3kb"
   },
   {
     "name": "EJS",
     "link": "http://embeddedjs.com/",
     "link_text": "project",
-    "size": "9.8k"
+    "size": "9.8kb"
   },
   {
     "name": "Handlebars.js",
@@ -34,72 +34,84 @@
     "name": "Hogan.js",
     "link": "http://twitter.github.com/hogan.js/",
     "link_text": "project",
-    "size": "2.5k"
+    "size": "2.5kb"
   },
   {
     "name": "ICanHaz.js",
     "link": "http://icanhazjs.com/",
     "link_text": "project",
-    "size": "5.445k"
+    "size": "5.445kb"
   },
   {
     "name": "Jade templates",
     "link": "https://github.com/visionmedia/jade",
     "link_text": "github",
-    "size": "39.687k"
+    "size": "39.687kb"
   },
   {
     "name": "JsRender",
     "link": "http://borismoore.github.com/jsrender/demos/index.html",
     "link_text": "project",
-    "size": "30.709k"
+    "size": "30.709kb"
   },
   {
     "name": "Markup.js",
     "link": "https://github.com/adammark/Markup.js",
     "link_text": "github",
-    "size": "5.1k"
+    "size": "5.1kb"
   },
   {
     "name": "Microtemplating",
     "link": "http://ejohn.org/blog/javascript-micro-templating/",
     "link_text": "blog post",
-    "size": "1k"
+    "size": "1kb"
   },
   {
     "name": "Mustache.js",
     "link": "https://github.com/janl/mustache.js/",
     "link_text": "github",
-    "size": "14.513k"
+    "size": "14.513kb"
   },
   {
     "name": "Nunjucks",
     "link": "https://github.com/jlongster/nunjucks",
     "link_text": "github",
-    "size": "20k"
+    "size": "20kb"
   },
   {
     "name": "Plates.js",
     "link": "https://github.com/flatiron/plates",
     "link_text": "github",
-    "size": "10.811k"
+    "size": "10.811kb"
   },
   {
     "name": "pure.js",
     "link": "http://beebole.com/pure",
     "link_text": "project",
-    "size": "11.7k"
+    "size": "11.7kb"
+  },
+  {
+    "name": "T7js",
+    "link": "http://t7js.com/",
+    "link_text": "project",
+    "size": "0.4kb"
   },
   {
     "name": "Transparency",
     "link": "http://leonidas.github.com/transparency/",
     "link_text": "project",
-    "size": "5.491k"
+    "size": "5.491kb"
   },
   {
     "name": "Underscore templates",
     "link": "http://documentcloud.github.com/underscore/#template",
     "link_text": "project",
-    "size": "4k"
-  }
+    "size": "4kb"
+  },
+  {
+    "name": "Vue",
+    "link": "http://cn.vuejs.org/",
+    "link_text": "project",
+    "size": "75kb"
+  },
 ]
