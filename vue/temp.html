@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>DevTools</title>
+</head>
+<body>
+  <div id="mount-point"></div>
+
+  <script src="vue.js"></script>
+  <script>
+    Vue.config.debug = true;
+    Vue.config.devtools = true;
+
+    // create reusable constructor
+    var Profile = Vue.extend({
+      template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>'
+    });
+    // create an instance of Profile
+    var profile = new Profile({
+      data: {
+        firstName: 'Walter',
+        lastName: 'White',
+        alias: 'Heisenberg'
+      }
+    });
+    // mount it on an element
+    profile.$mount('#mount-point');
+  </script>
+</body>
+</html>
